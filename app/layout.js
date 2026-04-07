@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-50 font-[family-name:var(--font-geist-sans)]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-stone-50 font-[family-name:var(--font-geist-sans)]`}
       >
         <TaskProvider>
           <main className="min-h-screen p-8">{children}</main>

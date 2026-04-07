@@ -40,18 +40,18 @@ export default function TimePicker({ value, onChange }) {
       <select
         value={selHour}
         onChange={(e) => handleChange(e.target.value, null, null)}
-        className="text-sm text-neutral-800 bg-transparent focus:outline-none appearance-none cursor-pointer"
+        className="text-sm text-stone-800 bg-transparent focus:outline-none appearance-none cursor-pointer"
       >
         <option value="">--</option>
         {hours.map((h) => (
           <option key={h} value={String(h)}>{h}</option>
         ))}
       </select>
-      <span className="text-neutral-400">:</span>
+      <span className="text-stone-400">:</span>
       <select
         value={selMin}
         onChange={(e) => handleChange(null, e.target.value, null)}
-        className="text-sm text-neutral-800 bg-transparent focus:outline-none appearance-none cursor-pointer"
+        className="text-sm text-stone-800 bg-transparent focus:outline-none appearance-none cursor-pointer"
       >
         <option value="">--</option>
         {minutes.map((m) => (
@@ -61,7 +61,7 @@ export default function TimePicker({ value, onChange }) {
       <select
         value={selPeriod}
         onChange={(e) => handleChange(null, null, e.target.value)}
-        className="text-sm text-neutral-800 bg-transparent focus:outline-none appearance-none cursor-pointer"
+        className="text-sm text-stone-800 bg-transparent focus:outline-none appearance-none cursor-pointer"
       >
         {periods.map((p) => (
           <option key={p} value={p}>{p}</option>
@@ -71,7 +71,7 @@ export default function TimePicker({ value, onChange }) {
         <button
           type="button"
           onClick={() => onChange("")}
-          className="text-neutral-300 hover:text-neutral-500 text-sm ml-1"
+          className="text-stone-300 hover:text-stone-500 text-sm ml-1"
         >
           &times;
         </button>

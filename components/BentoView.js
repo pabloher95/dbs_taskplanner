@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useTasks, useTaskDispatch } from "@/features/tasks/TaskContext";
 import { parseISO, isAfter, startOfDay, format } from "date-fns";
 
+
 export default function BentoView() {
   const tasks = useTasks();
   const dispatch = useTaskDispatch();
@@ -39,40 +40,40 @@ export default function BentoView() {
   return (
     <div className="max-w-4xl mx-auto mt-12 px-6">
       <div className="mb-8">
-        <p className="text-xs uppercase tracking-widest text-neutral-400 mb-1">
+        <p className="text-xs uppercase tracking-widest text-stone-400 mb-1">
           {format(today, "EEEE, MMMM d")}
         </p>
-        <h1 className="text-2xl font-bold text-neutral-900 tracking-tight">
+        <h1 className="text-2xl font-bold text-stone-900 tracking-tight">
           Daily Planner
         </h1>
       </div>
     <div className="grid grid-cols-4 gap-3" style={{ gridTemplateRows: `auto ${overdue.length > 0 ? "auto " : ""}1fr${completed.length > 0 ? " auto" : ""}` }}>
-      <div className="col-span-1 bg-neutral-900 rounded-2xl p-5 flex flex-col justify-between">
-        <p className="text-[10px] uppercase tracking-widest text-neutral-500">Today</p>
-        <p className="text-4xl font-bold text-white mt-2">{todayTotal}</p>
+      <div className="col-span-1 bg-stone-900 rounded-2xl p-6 flex flex-col justify-between">
+        <p className="text-[10px] uppercase tracking-widest text-stone-500">Today</p>
+        <p className="text-4xl font-extrabold text-white mt-2">{todayTotal}</p>
         {todayTotal > 0 && (
-          <p className="text-xs text-neutral-500 mt-1">
+          <p className="text-xs text-stone-500 mt-1">
             {completedToday} done
           </p>
         )}
       </div>
 
-      <div className={`col-span-1 rounded-2xl p-5 flex flex-col justify-between ${overdue.length > 0 ? "bg-red-500" : "bg-neutral-100"}`}>
-        <p className={`text-[10px] uppercase tracking-widest ${overdue.length > 0 ? "text-red-200" : "text-neutral-400"}`}>
+      <div className={`col-span-1 rounded-2xl p-5 flex flex-col justify-between ${overdue.length > 0 ? "bg-red-500" : "bg-stone-100"}`}>
+        <p className={`text-[10px] uppercase tracking-widest ${overdue.length > 0 ? "text-red-200" : "text-stone-400"}`}>
           Overdue
         </p>
-        <p className={`text-4xl font-bold mt-2 ${overdue.length > 0 ? "text-white" : "text-neutral-300"}`}>
+        <p className={`text-4xl font-extrabold mt-2 ${overdue.length > 0 ? "text-white" : "text-stone-300"}`}>
           {overdue.length}
         </p>
       </div>
 
-      <div className="col-span-1 bg-neutral-100 rounded-2xl p-5 flex flex-col justify-between">
-        <p className="text-[10px] uppercase tracking-widest text-neutral-400">Active</p>
-        <p className="text-4xl font-bold text-neutral-800 mt-2">{totalActive}</p>
+      <div className="col-span-1 bg-stone-100 rounded-2xl p-5 flex flex-col justify-between">
+        <p className="text-[10px] uppercase tracking-widest text-stone-400">Active</p>
+        <p className="text-4xl font-extrabold text-stone-800 mt-2">{totalActive}</p>
       </div>
 
-      <div className="col-span-1 bg-white border border-neutral-200 rounded-2xl p-5 flex flex-col" style={{ gridRow: "1 / -1" }}>
-        <p className="text-[10px] uppercase tracking-widest text-neutral-400 mb-3">Navigate</p>
+      <div className="col-span-1 bg-white shadow-sm rounded-2xl p-6 flex flex-col" style={{ gridRow: "1 / -1" }}>
+        <p className="text-[10px] uppercase tracking-widest text-stone-400 mb-3">Navigate</p>
         <div className="flex flex-col flex-1 justify-between">
           {[
             { href: "/tasks/new", label: "New Task" },
@@ -83,7 +84,7 @@ export default function BentoView() {
             <Link
               key={item.href}
               href={item.href}
-              className="block px-4 py-3 rounded-xl text-sm font-medium text-neutral-700 bg-neutral-50 hover:bg-neutral-900 hover:text-white transition-colors duration-200"
+              className="block px-4 py-3 rounded-xl text-sm font-medium text-stone-700 bg-stone-50 hover:bg-amber-600 hover:text-white transition-colors duration-200"
             >
               {item.label}
             </Link>
@@ -93,7 +94,7 @@ export default function BentoView() {
 
       {overdue.length > 0 && (
         <div className="col-span-3 bg-red-50 border border-red-200/60 rounded-2xl p-5">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-red-400 mb-3">
+          <p className="text-[10px] font-medium uppercase tracking-widest text-red-400 mb-3">
             Overdue tasks
           </p>
           <div className="grid grid-cols-3 gap-2">
@@ -114,25 +115,25 @@ export default function BentoView() {
         </div>
       )}
 
-      <div className={`${overdue.length > 0 ? "col-span-4" : "col-span-3"} bg-white border border-neutral-200 rounded-2xl p-5`}>
-        <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4">
+      <div className={`${overdue.length > 0 ? "col-span-4" : "col-span-3"} bg-white shadow-sm rounded-2xl p-6`}>
+        <p className="text-[10px] font-medium uppercase tracking-widest text-stone-400 mb-4">
           Upcoming
         </p>
         {upcoming.length === 0 ? (
           <div className="py-12 text-center">
-            <p className="text-sm text-neutral-300">Nothing ahead</p>
+            <p className="text-sm text-stone-300">Nothing ahead</p>
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-2">
             {upcoming.map((task) => (
               <div
                 key={task.id}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-50 hover:bg-neutral-100 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-stone-50 hover:bg-stone-100 transition-colors"
               >
                 <input
                   type="checkbox"
                   onChange={() => dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } })}
-                  className="h-3.5 w-3.5 rounded border-neutral-300 accent-neutral-700 shrink-0 cursor-pointer"
+                  className="h-3.5 w-3.5 rounded border-stone-300 accent-stone-700 shrink-0 cursor-pointer"
                 />
                 <div
                   className={`w-1 h-8 rounded-full shrink-0 ${
@@ -144,15 +145,15 @@ export default function BentoView() {
                   }`}
                 />
                 <div className="min-w-0 flex-1">
-                  <Link href={`/tasks/${task.id}/edit`} className="text-sm font-medium text-neutral-800 truncate hover:underline">
+                  <Link href={`/tasks/${task.id}/edit`} className="text-sm font-medium text-stone-800 truncate hover:underline">
                     {task.title}
                   </Link>
                   <div className="flex items-center gap-2 mt-0.5">
                     {task.time && (
-                      <span className="text-[10px] font-mono text-neutral-500">{task.time}</span>
+                      <span className="text-[10px] font-mono text-stone-500">{task.time}</span>
                     )}
-                    <span className="text-[10px] text-neutral-400">{task.category}</span>
-                    <span className="text-[10px] font-mono text-neutral-400">
+                    <span className="text-[10px] text-stone-400">{task.category}</span>
+                    <span className="text-[10px] font-mono text-stone-400">
                       {format(parseISO(task.deadline), "MMM d")}
                     </span>
                   </div>
@@ -163,26 +164,26 @@ export default function BentoView() {
         )}
       </div>
       {completed.length > 0 && (
-        <div className="col-span-4 bg-white border border-neutral-200 rounded-2xl p-5">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4">
+        <div className="col-span-4 bg-white shadow-sm rounded-2xl p-6">
+          <p className="text-[10px] font-medium uppercase tracking-widest text-stone-400 mb-4">
             Completed
           </p>
           <div className="grid grid-cols-2 gap-2">
             {completed.map((task) => (
               <div
                 key={task.id}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-50"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-stone-50"
               >
                 <input
                   type="checkbox"
                   checked
                   onChange={() => dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } })}
-                  className="h-3.5 w-3.5 rounded border-neutral-300 accent-neutral-700 shrink-0 cursor-pointer"
+                  className="h-3.5 w-3.5 rounded border-stone-300 accent-stone-700 shrink-0 cursor-pointer"
                 />
-                <Link href={`/tasks/${task.id}/edit`} className="text-sm text-neutral-400 line-through truncate hover:underline">
+                <Link href={`/tasks/${task.id}/edit`} className="text-sm text-stone-400 line-through truncate hover:underline">
                   {task.title}
                 </Link>
-                <span className="text-[10px] font-mono text-neutral-300 ml-auto shrink-0">
+                <span className="text-[10px] font-mono text-stone-300 ml-auto shrink-0">
                   {format(parseISO(task.deadline), "MMM d")}
                 </span>
               </div>
