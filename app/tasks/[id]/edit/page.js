@@ -34,8 +34,8 @@ export default function EditTaskPage() {
   if (!task) {
     return (
       <div className="max-w-xl mx-auto mt-16 px-6 text-center">
-        <p className="text-sm text-neutral-400">Task not found</p>
-        <Link href="/" className="text-xs text-neutral-400 hover:text-neutral-600 mt-4 inline-block">
+        <p className="text-sm text-slate-400">Task not found</p>
+        <Link href="/" className="text-xs text-slate-400 hover:text-slate-600 mt-4 inline-block">
           &larr; Home
         </Link>
       </div>
@@ -79,18 +79,18 @@ export default function EditTaskPage() {
     <div className="max-w-xl mx-auto mt-12 px-6">
       <Link
         href="/"
-        className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors"
+        className="text-xs text-slate-400 hover:text-slate-600 transition-colors"
       >
         &larr; Home
       </Link>
-      <h1 className="text-2xl font-bold text-neutral-900 tracking-tighter mt-2 mb-8">
+      <h1 className="text-2xl font-bold text-slate-900 tracking-tighter font-extrabold mt-2 mb-8">
         Edit Task
       </h1>
 
       <form onSubmit={handleSubmit}>
-        <div className="bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl divide-y divide-neutral-100">
+        <div className="bg-white/70 backdrop-blur-sm shadow-sm rounded-3xl divide-y divide-slate-100/60">
           <div className="p-5">
-            <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
+            <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
               Title
             </label>
             <input
@@ -98,39 +98,39 @@ export default function EditTaskPage() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               autoFocus
-              className="w-full text-sm text-neutral-800 placeholder:text-neutral-300 bg-transparent focus:outline-none"
+              className="w-full text-sm text-slate-800 placeholder:text-slate-300 bg-transparent focus:outline-none"
             />
           </div>
 
           <div className="p-5 flex gap-8">
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
                 Deadline
               </label>
               <input
                 type="date"
                 value={deadline}
                 onChange={(e) => setDeadline(e.target.value)}
-                className="text-sm text-neutral-800 bg-transparent focus:outline-none"
+                className="text-sm text-slate-800 bg-transparent focus:outline-none"
               />
             </div>
-            <div className="w-px bg-neutral-100" />
+            <div className="w-px bg-slate-100" />
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
                 Time <span className="normal-case tracking-normal font-normal">(optional)</span>
               </label>
               <input
                 type="time"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
-                className="text-sm text-neutral-800 bg-transparent focus:outline-none"
+                className="text-sm text-slate-800 bg-transparent focus:outline-none"
               />
             </div>
           </div>
 
           <div className="p-5 flex gap-8">
             <div className="flex-1">
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">
                 Category
               </label>
               <div className="flex flex-wrap gap-1.5">
@@ -142,7 +142,7 @@ export default function EditTaskPage() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition-colors ${
                       category === c
                         ? "bg-indigo-600 text-white"
-                        : "bg-neutral-50 text-neutral-500 hover:bg-neutral-100"
+                        : "bg-slate-50/80 text-slate-500 hover:bg-slate-100"
                     }`}
                   >
                     {c}
@@ -151,10 +151,10 @@ export default function EditTaskPage() {
               </div>
             </div>
 
-            <div className="w-px bg-neutral-100" />
+            <div className="w-px bg-slate-100" />
 
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">
                 Priority
               </label>
               <div className="flex gap-1.5">
@@ -166,7 +166,7 @@ export default function EditTaskPage() {
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                       priority === p
                         ? priorityActiveColors[p]
-                        : "bg-neutral-50 text-neutral-500 hover:bg-neutral-100"
+                        : "bg-slate-50/80 text-slate-500 hover:bg-slate-100"
                     }`}
                   >
                     {p}
@@ -177,7 +177,7 @@ export default function EditTaskPage() {
           </div>
 
           <div className="p-5">
-            <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
+            <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
               Notes
             </label>
             <textarea
@@ -185,7 +185,7 @@ export default function EditTaskPage() {
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Additional details (optional)"
               rows={3}
-              className="w-full text-sm text-neutral-800 placeholder:text-neutral-300 bg-transparent resize-none focus:outline-none"
+              className="w-full text-sm text-slate-800 placeholder:text-slate-300 bg-transparent resize-none focus:outline-none"
             />
           </div>
         </div>
@@ -193,13 +193,13 @@ export default function EditTaskPage() {
         <div className="flex gap-3 mt-5">
           <button
             type="submit"
-            className="flex-1 py-3 rounded-2xl bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-500 transition-colors"
+            className="flex-1 py-3 rounded-3xl bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-500 transition-colors"
           >
             Save Changes
           </button>
           <Link
             href="/"
-            className="px-6 py-3 rounded-2xl border border-neutral-200 text-sm font-medium text-neutral-500 hover:bg-neutral-50 transition-colors text-center"
+            className="px-6 py-3 rounded-3xl bg-white/60 backdrop-blur-sm border border-white/80 text-sm font-medium text-slate-500 hover:bg-slate-50/80 transition-colors text-center"
           >
             Cancel
           </Link>
@@ -208,7 +208,7 @@ export default function EditTaskPage() {
 
       <button
         onClick={handleDelete}
-        className="w-full mt-3 py-3 rounded-2xl text-sm font-medium text-red-400 hover:bg-red-50 transition-colors"
+        className="w-full mt-3 py-3 rounded-3xl text-sm font-medium text-red-400 hover:bg-red-50 transition-colors"
       >
         Delete Task
       </button>

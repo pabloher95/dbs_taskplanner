@@ -16,8 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased bg-neutral-100/50 font-[family-name:var(--font-inter)]`}
+        className={`${inter.variable} antialiased font-[family-name:var(--font-inter)]`}
       >
+        <div className="fixed inset-0 bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100 -z-10" />
         <TaskProvider>
           <main className="min-h-screen p-8 animate-page-in">{children}</main>
         </TaskProvider>

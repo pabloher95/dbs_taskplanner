@@ -38,42 +38,42 @@ export default function BentoView() {
 
   return (
     <div className="max-w-4xl mx-auto mt-12 px-6">
-      <div className="mb-8">
-        <p className="text-xs uppercase tracking-widest text-neutral-400 mb-1">
+      <div className="mb-10">
+        <p className="text-xs uppercase tracking-widest text-indigo-400/70 mb-1 font-medium">
           {format(today, "EEEE, MMMM d")}
         </p>
-        <h1 className="text-2xl font-bold text-neutral-900 tracking-tighter">
+        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tighter">
           Daily Planner
         </h1>
       </div>
-    <div className="grid grid-cols-4 gap-3" style={{ gridTemplateRows: `auto ${overdue.length > 0 ? "auto " : ""}1fr${completed.length > 0 ? " auto" : ""}` }}>
-      <div className="col-span-1 bg-neutral-900 rounded-2xl p-5 flex flex-col justify-between">
-        <p className="text-[10px] uppercase tracking-widest text-neutral-500">Today</p>
-        <p className="text-4xl font-bold text-white mt-2">{todayTotal}</p>
+    <div className="grid grid-cols-4 gap-4" style={{ gridTemplateRows: `auto ${overdue.length > 0 ? "auto " : ""}1fr${completed.length > 0 ? " auto" : ""}` }}>
+      <div className="col-span-1 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-3xl p-6 flex flex-col justify-between shadow-lg shadow-indigo-200/50">
+        <p className="text-[10px] uppercase tracking-widest text-indigo-300">Today</p>
+        <p className="text-5xl font-extrabold text-white mt-2">{todayTotal}</p>
         {todayTotal > 0 && (
-          <p className="text-xs text-neutral-500 mt-1">
+          <p className="text-xs text-indigo-300 mt-1">
             {completedToday} done
           </p>
         )}
       </div>
 
-      <div className={`col-span-1 rounded-2xl p-5 flex flex-col justify-between ${overdue.length > 0 ? "bg-red-500" : "bg-neutral-100"}`}>
-        <p className={`text-[10px] uppercase tracking-widest ${overdue.length > 0 ? "text-red-200" : "text-neutral-400"}`}>
+      <div className={`col-span-1 rounded-3xl p-6 flex flex-col justify-between ${overdue.length > 0 ? "bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-200/50" : "bg-white/60 backdrop-blur-sm border border-white/80"}`}>
+        <p className={`text-[10px] uppercase tracking-widest ${overdue.length > 0 ? "text-red-200" : "text-slate-400"}`}>
           Overdue
         </p>
-        <p className={`text-4xl font-bold mt-2 ${overdue.length > 0 ? "text-white" : "text-neutral-300"}`}>
+        <p className={`text-5xl font-extrabold mt-2 ${overdue.length > 0 ? "text-white" : "text-slate-300"}`}>
           {overdue.length}
         </p>
       </div>
 
-      <div className="col-span-1 bg-neutral-100 rounded-2xl p-5 flex flex-col justify-between">
-        <p className="text-[10px] uppercase tracking-widest text-neutral-400">Active</p>
-        <p className="text-4xl font-bold text-neutral-800 mt-2">{totalActive}</p>
+      <div className="col-span-1 bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6 flex flex-col justify-between">
+        <p className="text-[10px] uppercase tracking-widest text-slate-400">Active</p>
+        <p className="text-5xl font-extrabold text-slate-800 mt-2">{totalActive}</p>
       </div>
 
-      <div className="col-span-1 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl p-5 flex flex-col" style={{ gridRow: "1 / -1" }}>
-        <p className="text-[10px] uppercase tracking-widest text-neutral-400 mb-3">Navigate</p>
-        <div className="flex flex-col flex-1 justify-between">
+      <div className="col-span-1 bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6 flex flex-col" style={{ gridRow: "1 / -1" }}>
+        <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-4 font-medium">Navigate</p>
+        <div className="flex flex-col flex-1 justify-between gap-2">
           {[
             { href: "/tasks/new", label: "New Task" },
             { href: `/day/${todayStr}`, label: "Day View" },
@@ -83,7 +83,7 @@ export default function BentoView() {
             <Link
               key={item.href}
               href={item.href}
-              className="block px-4 py-3 rounded-xl text-sm font-medium text-neutral-700 bg-neutral-50 hover:bg-indigo-600 hover:text-white transition-colors duration-200"
+              className="block px-4 py-3 rounded-2xl text-sm font-semibold text-slate-600 bg-slate-50/80 border-l-2 border-transparent hover:border-l-2 hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-700 transition-all duration-200"
             >
               {item.label}
             </Link>
@@ -92,7 +92,7 @@ export default function BentoView() {
       </div>
 
       {overdue.length > 0 && (
-        <div className="col-span-3 bg-red-50 border border-red-200/60 rounded-2xl p-5">
+        <div className="col-span-3 bg-red-50/80 backdrop-blur-sm border border-red-200/40 rounded-3xl p-6">
           <p className="text-[10px] font-bold uppercase tracking-widest text-red-400 mb-3">
             Overdue tasks
           </p>
@@ -114,25 +114,26 @@ export default function BentoView() {
         </div>
       )}
 
-      <div className={`${overdue.length > 0 ? "col-span-4" : "col-span-3"} bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl p-5`}>
-        <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4">
+      <div className={`${overdue.length > 0 ? "col-span-4" : "col-span-3"} bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6`}>
+        <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-5">
           Upcoming
         </p>
         {upcoming.length === 0 ? (
-          <div className="py-12 text-center">
-            <p className="text-sm text-neutral-300">Nothing ahead</p>
+          <div className="py-14 text-center">
+            <p className="text-sm text-slate-300 font-medium">Nothing ahead</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 gap-2">
-            {upcoming.map((task) => (
+          <div className="grid grid-cols-2 gap-3">
+            {upcoming.map((task, i) => (
               <div
                 key={task.id}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/50 backdrop-blur-sm hover:bg-white/80 hover:shadow-lg transition-all duration-200"
+                className="flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-white/70 border border-white hover:bg-white hover:shadow-md hover:shadow-indigo-100/50 transition-all duration-200 animate-fade-in-up"
+                style={{ animationDelay: `${i * 60}ms` }}
               >
                 <input
                   type="checkbox"
                   onChange={() => dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } })}
-                  className="h-3.5 w-3.5 rounded border-neutral-300 accent-neutral-700 shrink-0 cursor-pointer"
+                  className="h-3.5 w-3.5 rounded border-slate-300 accent-indigo-600 shrink-0 cursor-pointer"
                 />
                 <div
                   className={`w-1 h-8 rounded-full shrink-0 ${
@@ -144,15 +145,15 @@ export default function BentoView() {
                   }`}
                 />
                 <div className="min-w-0 flex-1">
-                  <Link href={`/tasks/${task.id}/edit`} className="text-sm font-medium text-neutral-800 truncate hover:underline">
+                  <Link href={`/tasks/${task.id}/edit`} className="text-sm font-semibold text-slate-800 truncate hover:underline">
                     {task.title}
                   </Link>
                   <div className="flex items-center gap-2 mt-0.5">
                     {task.time && (
-                      <span className="text-[10px] font-mono text-neutral-500">{task.time}</span>
+                      <span className="text-[10px] font-mono text-indigo-400">{task.time}</span>
                     )}
-                    <span className="text-[10px] text-neutral-400">{task.category}</span>
-                    <span className="text-[10px] font-mono text-neutral-400">
+                    <span className="text-[10px] text-slate-400">{task.category}</span>
+                    <span className="text-[10px] font-mono text-slate-400">
                       {format(parseISO(task.deadline), "MMM d")}
                     </span>
                   </div>
@@ -163,26 +164,26 @@ export default function BentoView() {
         )}
       </div>
       {completed.length > 0 && (
-        <div className="col-span-4 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl p-5">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4">
+        <div className="col-span-4 bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">
             Completed
           </p>
           <div className="grid grid-cols-2 gap-2">
             {completed.map((task) => (
               <div
                 key={task.id}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-50"
+                className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-slate-50/80"
               >
                 <input
                   type="checkbox"
                   checked
                   onChange={() => dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } })}
-                  className="h-3.5 w-3.5 rounded border-neutral-300 accent-neutral-700 shrink-0 cursor-pointer"
+                  className="h-3.5 w-3.5 rounded border-slate-300 accent-indigo-600 shrink-0 cursor-pointer"
                 />
-                <Link href={`/tasks/${task.id}/edit`} className="text-sm text-neutral-400 line-through truncate hover:underline">
+                <Link href={`/tasks/${task.id}/edit`} className="text-sm text-slate-400 line-through truncate hover:underline">
                   {task.title}
                 </Link>
-                <span className="text-[10px] font-mono text-neutral-300 ml-auto shrink-0">
+                <span className="text-[10px] font-mono text-slate-300 ml-auto shrink-0">
                   {format(parseISO(task.deadline), "MMM d")}
                 </span>
               </div>

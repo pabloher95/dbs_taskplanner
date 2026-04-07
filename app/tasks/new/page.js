@@ -47,19 +47,19 @@ export default function NewTaskPage() {
     <div className="max-w-xl mx-auto mt-12 px-6">
       <Link
         href="/"
-        className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors"
+        className="text-xs text-slate-400 hover:text-indigo-500 transition-colors"
       >
         &larr; Home
       </Link>
-      <h1 className="text-2xl font-bold text-neutral-900 tracking-tighter mt-2 mb-8">
+      <h1 className="text-3xl font-extrabold text-slate-900 tracking-tighter mt-2 mb-8">
         New Task
       </h1>
 
       <form onSubmit={handleSubmit} noValidate>
-        <div className="bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl divide-y divide-neutral-100">
+        <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl divide-y divide-slate-100/60">
           {/* Title */}
-          <div className="p-5">
-            <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
+          <div className="p-6">
+            <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
               Title
             </label>
             <input
@@ -68,41 +68,41 @@ export default function NewTaskPage() {
               onChange={(e) => setTitle(e.target.value)}
               placeholder="What needs to be done?"
               autoFocus
-              className="w-full text-sm text-neutral-800 placeholder:text-neutral-300 bg-transparent focus:outline-none"
+              className="w-full text-sm text-slate-800 placeholder:text-slate-300 bg-transparent focus:outline-none"
             />
           </div>
 
           {/* Deadline & Time */}
-          <div className="p-5 flex gap-8">
+          <div className="p-6 flex gap-8">
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
                 Deadline
               </label>
               <input
                 type="date"
                 value={deadline}
                 onChange={(e) => setDeadline(e.target.value)}
-                className="text-sm text-neutral-800 bg-transparent focus:outline-none"
+                className="text-sm text-slate-800 bg-transparent focus:outline-none"
               />
             </div>
-            <div className="w-px bg-neutral-100" />
+            <div className="w-px bg-slate-100" />
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
                 Time <span className="normal-case tracking-normal font-normal">(optional)</span>
               </label>
               <input
                 type="time"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
-                className="text-sm text-neutral-800 bg-transparent focus:outline-none"
+                className="text-sm text-slate-800 bg-transparent focus:outline-none"
               />
             </div>
           </div>
 
           {/* Category & Priority */}
-          <div className="p-5 flex gap-8">
+          <div className="p-6 flex gap-8">
             <div className="flex-1">
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">
                 Category
               </label>
               <div className="flex flex-wrap gap-1.5">
@@ -111,10 +111,10 @@ export default function NewTaskPage() {
                     key={c}
                     type="button"
                     onClick={() => setCategory(c)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition-colors ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition-all duration-200 ${
                       category === c
-                        ? "bg-indigo-600 text-white"
-                        : "bg-neutral-50 text-neutral-500 hover:bg-neutral-100"
+                        ? "bg-indigo-600 text-white shadow-md shadow-indigo-200/50"
+                        : "bg-slate-50/80 text-slate-500 hover:bg-indigo-50 hover:text-indigo-600"
                     }`}
                   >
                     {c}
@@ -123,10 +123,10 @@ export default function NewTaskPage() {
               </div>
             </div>
 
-            <div className="w-px bg-neutral-100" />
+            <div className="w-px bg-slate-100" />
 
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-3">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">
                 Priority
               </label>
               <div className="flex gap-1.5">
@@ -135,10 +135,10 @@ export default function NewTaskPage() {
                     key={p}
                     type="button"
                     onClick={() => setPriority(p)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${
                       priority === p
                         ? priorityActiveColors[p]
-                        : "bg-neutral-50 text-neutral-500 hover:bg-neutral-100"
+                        : "bg-slate-50/80 text-slate-500 hover:bg-slate-100"
                     }`}
                   >
                     {p}
@@ -149,8 +149,8 @@ export default function NewTaskPage() {
           </div>
 
           {/* Notes */}
-          <div className="p-5">
-            <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
+          <div className="p-6">
+            <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
               Notes
             </label>
             <textarea
@@ -158,21 +158,21 @@ export default function NewTaskPage() {
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Additional details (optional)"
               rows={3}
-              className="w-full text-sm text-neutral-800 placeholder:text-neutral-300 bg-transparent resize-none focus:outline-none"
+              className="w-full text-sm text-slate-800 placeholder:text-slate-300 bg-transparent resize-none focus:outline-none"
             />
           </div>
         </div>
 
-        <div className="flex gap-3 mt-5">
+        <div className="flex gap-3 mt-6">
           <button
             type="submit"
-            className="flex-1 py-3 rounded-2xl bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-500 transition-colors"
+            className="flex-1 py-3.5 rounded-2xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 shadow-lg shadow-indigo-200/50 transition-all duration-200"
           >
             Add Task
           </button>
           <Link
             href="/"
-            className="px-6 py-3 rounded-2xl border border-neutral-200 text-sm font-medium text-neutral-500 hover:bg-neutral-50 transition-colors text-center"
+            className="px-6 py-3.5 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 text-sm font-medium text-slate-500 hover:bg-white hover:text-slate-700 transition-all duration-200 text-center"
           >
             Cancel
           </Link>

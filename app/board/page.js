@@ -11,11 +11,11 @@ export default function BoardPage() {
           <div>
             <Link
               href="/"
-              className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors"
+              className="text-xs text-slate-400 hover:text-indigo-500 transition-colors"
             >
               &larr; Home
             </Link>
-            <h1 className="text-2xl font-bold text-neutral-900 tracking-tighter mt-1">
+            <h1 className="text-3xl font-extrabold text-slate-900 tracking-tighter mt-1">
               Board
             </h1>
           </div>
