@@ -1,12 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { format } from "date-fns";
 import { useTaskDispatch, CATEGORIES, PRIORITIES } from "@/features/tasks/TaskContext";
 
 export default function NewTaskPage() {
+  return (
+    <Suspense>
+      <NewTaskForm />
+    </Suspense>
+  );
+}
+
+function NewTaskForm() {
   const dispatch = useTaskDispatch();
   const router = useRouter();
   const searchParams = useSearchParams();

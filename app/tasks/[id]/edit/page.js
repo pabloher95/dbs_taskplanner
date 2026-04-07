@@ -87,7 +87,7 @@ export default function EditTaskPage() {
         Edit Task
       </h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <div className="bg-white/85 backdrop-blur-md shadow-sm rounded-3xl divide-y divide-slate-100/60">
           <div className="p-5">
             <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
