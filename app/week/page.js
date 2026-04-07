@@ -121,15 +121,15 @@ export default function WeekPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-3 gap-3 mb-6">
-        <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-3xl p-4 shadow-lg shadow-indigo-200/50">
+        <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-3xl p-4 shadow-lg shadow-indigo-200/50 hover-lift hover:shadow-xl hover:shadow-indigo-300/50 animate-pop-in" style={{ animationDelay: "0ms" }}>
           <p className="text-[10px] uppercase tracking-widest text-indigo-300">Total</p>
           <p className="text-3xl font-bold text-white mt-1">{weekTasks.length}</p>
         </div>
-        <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-4">
+        <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-4 hover-lift hover:shadow-lg hover:shadow-indigo-100/40 animate-pop-in" style={{ animationDelay: "80ms" }}>
           <p className="text-[10px] uppercase tracking-widest text-slate-400">Active</p>
           <p className="text-3xl font-bold text-slate-800 mt-1">{weekActive}</p>
         </div>
-        <div className={`rounded-2xl p-4 ${weekCompleted > 0 ? "bg-emerald-50" : "bg-neutral-100"}`}>
+        <div className={`rounded-3xl p-4 hover-lift animate-pop-in ${weekCompleted > 0 ? "bg-emerald-50/80 border border-emerald-200/40 hover:shadow-lg hover:shadow-emerald-100/40" : "bg-white/60 backdrop-blur-sm border border-white/80 hover:shadow-lg hover:shadow-indigo-100/40"}`} style={{ animationDelay: "160ms" }}>
           <p className={`text-[10px] uppercase tracking-widest ${weekCompleted > 0 ? "text-emerald-400" : "text-slate-400"}`}>Done</p>
           <p className={`text-3xl font-bold mt-1 ${weekCompleted > 0 ? "text-emerald-600" : "text-slate-300"}`}>{weekCompleted}</p>
         </div>
@@ -137,7 +137,7 @@ export default function WeekPage() {
 
       {/* Day columns */}
       <div className="grid grid-cols-7 gap-3">
-        {days.map((day) => {
+        {days.map((day, dayIndex) => {
           const dayTasks = getTasksForDay(day);
           const isTodayDate = isToday(day);
           const isPast = isBefore(day, today);
@@ -145,18 +145,19 @@ export default function WeekPage() {
           return (
             <div
               key={day.toISOString()}
-              className={`rounded-3xl p-3 min-h-[200px] ${
+              className={`rounded-3xl p-3 min-h-[200px] hover-lift animate-pop-in ${
                 isTodayDate
-                  ? "bg-gradient-to-br from-indigo-600 to-indigo-700 shadow-lg shadow-indigo-200/50"
-                  : "bg-white/40 backdrop-blur-sm border border-white/60"
+                  ? "bg-gradient-to-br from-indigo-600 to-indigo-700 shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:shadow-indigo-300/50"
+                  : "bg-white/40 backdrop-blur-sm border border-white/60 hover:shadow-lg hover:shadow-indigo-100/40"
               }`}
+              style={{ animationDelay: `${dayIndex * 60}ms` }}
             >
               <Link
                 href={`/day/${format(day, "yyyy-MM-dd")}`}
                 className="block mb-3"
               >
                 <p className={`text-[10px] font-bold uppercase tracking-widest ${
-                  isTodayDate ? "text-slate-500" : "text-slate-400"
+                  isTodayDate ? "text-indigo-300" : "text-slate-400"
                 }`}>
                   {format(day, "EEE")}
                 </p>
@@ -168,7 +169,7 @@ export default function WeekPage() {
               </Link>
 
               {dayTasks.length === 0 ? (
-                <p className={`text-[10px] ${isTodayDate ? "text-slate-600" : "text-slate-300"}`}>
+                <p className={`text-[10px] ${isTodayDate ? "text-indigo-300/70" : "text-slate-300"}`}>
                   No tasks
                 </p>
               ) : (
@@ -196,10 +197,10 @@ export default function WeekPage() {
                           className={`text-[11px] leading-tight block truncate hover:underline ${
                             task.completed
                               ? isTodayDate
-                                ? "text-slate-600 line-through"
+                                ? "text-indigo-300/60 line-through"
                                 : "text-slate-400 line-through"
                               : isTodayDate
-                              ? "text-indigo-200"
+                              ? "text-white"
                               : "text-slate-700"
                           }`}
                         >
@@ -208,7 +209,7 @@ export default function WeekPage() {
                         {!task.completed && (
                           <>
                             {task.time && (
-                              <span className="text-[9px] font-mono text-slate-400 block mt-0.5">{task.time}</span>
+                              <span className={`text-[9px] font-mono block mt-0.5 ${isTodayDate ? "text-indigo-300" : "text-slate-400"}`}>{task.time}</span>
                             )}
                             <div className={`w-full h-0.5 rounded-full mt-1 ${priorityColors[task.priority]}`} />
                           </>
