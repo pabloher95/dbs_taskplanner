@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useTasks, useTaskDispatch } from "@/features/tasks/TaskContext";
 import { parseISO, isAfter, startOfDay, format } from "date-fns";
+import AnimatedNumber from "@/components/AnimatedNumber";
 
 export default function BentoView() {
   const tasks = useTasks();
@@ -47,9 +48,9 @@ export default function BentoView() {
         </h1>
       </div>
     <div className="grid grid-cols-4 gap-3" style={{ gridTemplateRows: `auto ${overdue.length > 0 ? "auto " : ""}1fr${completed.length > 0 ? " auto" : ""}` }}>
-      <div className="col-span-1 bg-neutral-900 rounded-2xl p-5 flex flex-col justify-between">
+      <div className="col-span-1 bg-neutral-900 rounded-2xl p-5 flex flex-col justify-between hover:scale-[1.02] transition-transform duration-200">
         <p className="text-[10px] uppercase tracking-widest text-neutral-500">Today</p>
-        <p className="text-4xl font-bold text-white mt-2">{todayTotal}</p>
+        <AnimatedNumber value={todayTotal} className="text-4xl font-bold text-white mt-2 block" />
         {todayTotal > 0 && (
           <p className="text-xs text-neutral-500 mt-1">
             {completedToday} done
@@ -57,18 +58,16 @@ export default function BentoView() {
         )}
       </div>
 
-      <div className={`col-span-1 rounded-2xl p-5 flex flex-col justify-between ${overdue.length > 0 ? "bg-red-500" : "bg-neutral-100"}`}>
+      <div className={`col-span-1 rounded-2xl p-5 flex flex-col justify-between hover:scale-[1.02] transition-transform duration-200 ${overdue.length > 0 ? "bg-red-500" : "bg-neutral-100"}`}>
         <p className={`text-[10px] uppercase tracking-widest ${overdue.length > 0 ? "text-red-200" : "text-neutral-400"}`}>
           Overdue
         </p>
-        <p className={`text-4xl font-bold mt-2 ${overdue.length > 0 ? "text-white" : "text-neutral-300"}`}>
-          {overdue.length}
-        </p>
+        <AnimatedNumber value={overdue.length} className={`text-4xl font-bold mt-2 block ${overdue.length > 0 ? "text-white" : "text-neutral-300"}`} />
       </div>
 
-      <div className="col-span-1 bg-neutral-100 rounded-2xl p-5 flex flex-col justify-between">
+      <div className="col-span-1 bg-neutral-100 rounded-2xl p-5 flex flex-col justify-between hover:scale-[1.02] transition-transform duration-200">
         <p className="text-[10px] uppercase tracking-widest text-neutral-400">Active</p>
-        <p className="text-4xl font-bold text-neutral-800 mt-2">{totalActive}</p>
+        <AnimatedNumber value={totalActive} className="text-4xl font-bold text-neutral-800 mt-2 block" />
       </div>
 
       <div className="col-span-1 bg-white border border-neutral-200 rounded-2xl p-5 flex flex-col" style={{ gridRow: "1 / -1" }}>
@@ -83,7 +82,7 @@ export default function BentoView() {
             <Link
               key={item.href}
               href={item.href}
-              className="block px-4 py-3 rounded-xl text-sm font-medium text-neutral-700 bg-neutral-50 hover:bg-neutral-900 hover:text-white transition-colors duration-200"
+              className="block px-4 py-3 rounded-xl text-sm font-medium text-neutral-700 bg-neutral-50 hover:bg-neutral-900 hover:text-white hover:scale-[1.02] transition-all duration-200"
             >
               {item.label}
             </Link>
@@ -124,10 +123,11 @@ export default function BentoView() {
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-2">
-            {upcoming.map((task) => (
+            {upcoming.map((task, i) => (
               <div
                 key={task.id}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-50 hover:bg-neutral-100 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-50 hover:bg-neutral-100 hover:scale-[1.01] transition-all duration-200 animate-fade-in-up"
+                style={{ animationDelay: `${i * 50}ms` }}
               >
                 <input
                   type="checkbox"

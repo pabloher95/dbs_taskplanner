@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { format } from "date-fns";
 import { useTaskDispatch, CATEGORIES, PRIORITIES } from "@/features/tasks/TaskContext";
+import Toast from "@/components/Toast";
 
 export default function NewTaskPage() {
   const dispatch = useTaskDispatch();
@@ -17,6 +18,9 @@ export default function NewTaskPage() {
   const [category, setCategory] = useState(CATEGORIES[3]);
   const [priority, setPriority] = useState(PRIORITIES[1]);
   const [notes, setNotes] = useState("");
+  const [showToast, setShowToast] = useState(false);
+
+  const hideToast = useCallback(() => setShowToast(false), []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -34,7 +38,8 @@ export default function NewTaskPage() {
       },
     });
 
-    router.replace("/");
+    setShowToast(true);
+    setTimeout(() => router.replace("/"), 800);
   }
 
   const priorityActiveColors = {
@@ -178,6 +183,7 @@ export default function NewTaskPage() {
           </Link>
         </div>
       </form>
+      <Toast message="Task added!" show={showToast} onClose={hideToast} />
     </div>
   );
 }

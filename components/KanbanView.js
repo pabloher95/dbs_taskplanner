@@ -79,15 +79,16 @@ export default function KanbanView() {
             </div>
           ) : (
             <div className="space-y-2">
-              {col.tasks.map((task) => {
+              {col.tasks.map((task, i) => {
                 const isOverdue = parseISO(task.deadline) < today;
 
                 return (
                   <div
                     key={task.id}
-                    className={`bg-white rounded-xl p-3 shadow-sm border transition-shadow hover:shadow-md ${
+                    className={`bg-white rounded-xl p-3 shadow-sm border transition-all duration-200 hover:shadow-md hover:scale-[1.02] animate-fade-in-up ${
                       isOverdue ? "border-red-200" : "border-transparent"
                     }`}
+                    style={{ animationDelay: `${i * 60}ms` }}
                   >
                     <div className="flex items-start gap-2">
                       <input

@@ -173,18 +173,19 @@ export default function DayPage() {
               </div>
             ) : (
               <div className="space-y-2">
-                {active.map((task) => (
+                {active.map((task, i) => (
                   <div
                     key={task.id}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
+                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 hover:scale-[1.01] animate-fade-in-up ${
                       isOverdueDay
                         ? "bg-red-50 hover:bg-red-100/70"
                         : "bg-neutral-50 hover:bg-neutral-100"
                     }`}
+                    style={{ animationDelay: `${i * 50}ms` }}
                   >
                     <input
                       type="checkbox"
-                      onChange={() => dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } })}
+                      onChange={(e) => { e.target.classList.add('animate-check-pop'); dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } }); }}
                       className="h-3.5 w-3.5 rounded border-neutral-300 accent-neutral-700 shrink-0 cursor-pointer"
                     />
                     <div className={`w-1 h-8 rounded-full shrink-0 ${priorityColors[task.priority]}`} />
