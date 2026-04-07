@@ -42,7 +42,7 @@ export default function BentoView() {
         <p className="text-xs uppercase tracking-widest text-neutral-400 mb-1">
           {format(today, "EEEE, MMMM d")}
         </p>
-        <h1 className="text-2xl font-bold text-neutral-900 tracking-tight">
+        <h1 className="text-2xl font-bold text-neutral-900 tracking-tighter">
           Daily Planner
         </h1>
       </div>
@@ -71,7 +71,7 @@ export default function BentoView() {
         <p className="text-4xl font-bold text-neutral-800 mt-2">{totalActive}</p>
       </div>
 
-      <div className="col-span-1 bg-white border border-neutral-200 rounded-2xl p-5 flex flex-col" style={{ gridRow: "1 / -1" }}>
+      <div className="col-span-1 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl p-5 flex flex-col" style={{ gridRow: "1 / -1" }}>
         <p className="text-[10px] uppercase tracking-widest text-neutral-400 mb-3">Navigate</p>
         <div className="flex flex-col flex-1 justify-between">
           {[
@@ -83,7 +83,7 @@ export default function BentoView() {
             <Link
               key={item.href}
               href={item.href}
-              className="block px-4 py-3 rounded-xl text-sm font-medium text-neutral-700 bg-neutral-50 hover:bg-neutral-900 hover:text-white transition-colors duration-200"
+              className="block px-4 py-3 rounded-xl text-sm font-medium text-neutral-700 bg-neutral-50 hover:bg-indigo-600 hover:text-white transition-colors duration-200"
             >
               {item.label}
             </Link>
@@ -114,7 +114,7 @@ export default function BentoView() {
         </div>
       )}
 
-      <div className={`${overdue.length > 0 ? "col-span-4" : "col-span-3"} bg-white border border-neutral-200 rounded-2xl p-5`}>
+      <div className={`${overdue.length > 0 ? "col-span-4" : "col-span-3"} bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl p-5`}>
         <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4">
           Upcoming
         </p>
@@ -127,7 +127,7 @@ export default function BentoView() {
             {upcoming.map((task) => (
               <div
                 key={task.id}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-50 hover:bg-neutral-100 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/50 backdrop-blur-sm hover:bg-white/80 hover:shadow-lg transition-all duration-200"
               >
                 <input
                   type="checkbox"
@@ -163,7 +163,7 @@ export default function BentoView() {
         )}
       </div>
       {completed.length > 0 && (
-        <div className="col-span-4 bg-white border border-neutral-200 rounded-2xl p-5">
+        <div className="col-span-4 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl p-5">
           <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4">
             Completed
           </p>

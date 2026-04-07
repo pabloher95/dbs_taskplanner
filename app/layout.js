@@ -1,16 +1,10 @@
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { TaskProvider } from "@/features/tasks/TaskContext";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata = {
@@ -22,10 +16,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-50 font-[family-name:var(--font-geist-sans)]`}
+        className={`${inter.variable} antialiased bg-neutral-100/50 font-[family-name:var(--font-inter)]`}
       >
         <TaskProvider>
-          <main className="min-h-screen p-8">{children}</main>
+          <main className="min-h-screen p-8 animate-page-in">{children}</main>
         </TaskProvider>
       </body>
     </html>

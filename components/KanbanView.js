@@ -85,7 +85,7 @@ export default function KanbanView() {
                 return (
                   <div
                     key={task.id}
-                    className={`bg-white rounded-xl p-3 shadow-sm border transition-shadow hover:shadow-md ${
+                    className={`bg-white/70 backdrop-blur-sm rounded-xl p-3 shadow-sm border transition-all duration-200 hover:shadow-lg ${
                       isOverdue ? "border-red-200" : "border-transparent"
                     }`}
                   >

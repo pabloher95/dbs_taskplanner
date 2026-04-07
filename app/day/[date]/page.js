@@ -85,7 +85,7 @@ export default function DayPage() {
           </Link>
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-neutral-900 tracking-tight">
+          <h1 className="text-2xl font-bold text-neutral-900 tracking-tighter">
             {format(selectedDate, "EEEE, MMMM d")}
           </h1>
           {isToday(selectedDate) && (
@@ -95,14 +95,14 @@ export default function DayPage() {
         <div className="ml-auto flex items-center gap-2">
           <Link
             href={`/tasks/new?date=${dateStr}`}
-            className="text-xs font-medium px-3 py-2 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 transition-colors"
+            className="text-xs font-medium px-3 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
           >
             + Add Task
           </Link>
           {!isToday(selectedDate) && (
             <Link
               href={`/day/${format(today, "yyyy-MM-dd")}`}
-              className="text-xs font-medium px-3 py-2 rounded-xl border border-neutral-200 bg-white text-neutral-600 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-colors"
+              className="text-xs font-medium px-3 py-2 rounded-xl border border-neutral-200 bg-white text-neutral-600 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition-colors"
             >
               Today
             </Link>
@@ -137,7 +137,7 @@ export default function DayPage() {
           </div>
 
           {/* Active tasks */}
-          <div className="bg-white border border-neutral-200 rounded-2xl p-5">
+          <div className="bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl p-5">
             <div className="flex items-center justify-between mb-4">
               <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">
                 {isOverdueDay ? "Overdue" : "Tasks"}
@@ -217,7 +217,7 @@ export default function DayPage() {
 
           {/* Completed tasks */}
           {completed.length > 0 && (
-            <div className="bg-white border border-neutral-200 rounded-2xl p-5">
+            <div className="bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl p-5">
               <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4">
                 Completed
               </p>

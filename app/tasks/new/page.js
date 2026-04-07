@@ -51,12 +51,12 @@ export default function NewTaskPage() {
       >
         &larr; Home
       </Link>
-      <h1 className="text-2xl font-bold text-neutral-900 tracking-tight mt-2 mb-8">
+      <h1 className="text-2xl font-bold text-neutral-900 tracking-tighter mt-2 mb-8">
         New Task
       </h1>
 
       <form onSubmit={handleSubmit} noValidate>
-        <div className="bg-white border border-neutral-200 rounded-2xl divide-y divide-neutral-100">
+        <div className="bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl divide-y divide-neutral-100">
           {/* Title */}
           <div className="p-5">
             <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
@@ -113,7 +113,7 @@ export default function NewTaskPage() {
                     onClick={() => setCategory(c)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition-colors ${
                       category === c
-                        ? "bg-neutral-900 text-white"
+                        ? "bg-indigo-600 text-white"
                         : "bg-neutral-50 text-neutral-500 hover:bg-neutral-100"
                     }`}
                   >
@@ -166,7 +166,7 @@ export default function NewTaskPage() {
         <div className="flex gap-3 mt-5">
           <button
             type="submit"
-            className="flex-1 py-3 rounded-2xl bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition-colors"
+            className="flex-1 py-3 rounded-2xl bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-500 transition-colors"
           >
             Add Task
           </button>

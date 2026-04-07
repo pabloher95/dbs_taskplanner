@@ -82,7 +82,7 @@ export default function WeekPage() {
             &rarr;
           </button>
         </div>
-        <h1 className="text-2xl font-bold text-neutral-900 tracking-tight">
+        <h1 className="text-2xl font-bold text-neutral-900 tracking-tighter">
           {format(weekStart, "MMM d")} – {format(weekEnd, "MMM d, yyyy")}
         </h1>
         <div className="ml-auto flex items-center gap-2">
@@ -111,7 +111,7 @@ export default function WeekPage() {
           {!isCurrentWeek && (
             <button
               onClick={() => setWeekStart(startOfWeek(today))}
-              className="text-xs font-medium px-3 py-2 rounded-xl border border-neutral-200 bg-white text-neutral-600 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-colors"
+              className="text-xs font-medium px-3 py-2 rounded-xl border border-neutral-200 bg-white text-neutral-600 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition-colors"
             >
               This Week
             </button>

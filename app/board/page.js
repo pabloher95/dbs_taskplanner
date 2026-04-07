@@ -15,7 +15,7 @@ export default function BoardPage() {
             >
               &larr; Home
             </Link>
-            <h1 className="text-2xl font-bold text-neutral-900 tracking-tight mt-1">
+            <h1 className="text-2xl font-bold text-neutral-900 tracking-tighter mt-1">
               Board
             </h1>
           </div>
