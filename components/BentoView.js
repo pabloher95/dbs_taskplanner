@@ -71,7 +71,7 @@ export default function BentoView() {
         <p className="text-5xl font-extrabold text-slate-800 mt-2">{totalActive}</p>
       </div>
 
-      <div className="col-span-1 bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl p-6 flex flex-col animate-slide-in-left" style={{ gridRow: "1 / -1", animationDelay: "200ms" }}>
+      <div className="col-span-1 bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl p-6 flex flex-col animate-slide-in-left" style={{ gridRow: `1 / ${overdue.length > 0 ? 4 : 3}`, animationDelay: "200ms" }}>
         <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-4 font-medium">Navigate</p>
         <div className="flex flex-col flex-1 justify-between gap-2">
           {[
