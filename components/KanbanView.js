@@ -25,6 +25,8 @@ export default function KanbanView() {
       .filter((t) => t.category === cat)
       .sort((a, b) => {
         if (sortBy === "time") {
+          const dateDiff = a.deadline.localeCompare(b.deadline);
+          if (dateDiff !== 0) return dateDiff;
           if (!a.time && !b.time) return 0;
           if (!a.time) return 1;
           if (!b.time) return -1;
