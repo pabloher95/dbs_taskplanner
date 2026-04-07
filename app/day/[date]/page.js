@@ -95,7 +95,7 @@ export default function DayPage() {
         <div className="ml-auto flex items-center gap-2">
           <Link
             href={`/tasks/new?date=${dateStr}`}
-            className="text-xs font-semibold px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 shadow-md shadow-indigo-200/50 transition-all duration-200"
+            className="text-xs font-semibold px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 hover:scale-[1.05] hover:shadow-lg hover:shadow-indigo-300/50 active:scale-[0.97] shadow-md shadow-indigo-200/50 transition-all duration-200"
           >
             + Add Task
           </Link>
@@ -122,22 +122,22 @@ export default function DayPage() {
         <div className="space-y-4">
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-4">
-            <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-3xl p-5 shadow-lg shadow-indigo-200/50">
+            <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-3xl p-5 shadow-lg shadow-indigo-200/50 hover-lift hover:shadow-xl hover:shadow-indigo-300/50 animate-pop-in" style={{ animationDelay: "0ms" }}>
               <p className="text-[10px] uppercase tracking-widest text-indigo-300">Tasks</p>
               <p className="text-4xl font-extrabold text-white mt-1">{dayTasks.length}</p>
             </div>
-            <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-5">
+            <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-5 hover-lift hover:shadow-lg hover:shadow-indigo-100/40 animate-pop-in" style={{ animationDelay: "80ms" }}>
               <p className="text-[10px] uppercase tracking-widest text-slate-400">Active</p>
               <p className="text-4xl font-extrabold text-slate-800 mt-1">{active.length}</p>
             </div>
-            <div className={`rounded-3xl p-5 ${completed.length > 0 ? "bg-emerald-50/80 border border-emerald-200/40" : "bg-white/60 backdrop-blur-sm border border-white/80"}`}>
+            <div className={`rounded-3xl p-5 hover-lift animate-pop-in ${completed.length > 0 ? "bg-emerald-50/80 border border-emerald-200/40 hover:shadow-lg hover:shadow-emerald-100/40" : "bg-white/60 backdrop-blur-sm border border-white/80 hover:shadow-lg hover:shadow-indigo-100/40"}`} style={{ animationDelay: "160ms" }}>
               <p className={`text-[10px] uppercase tracking-widest ${completed.length > 0 ? "text-emerald-400" : "text-slate-400"}`}>Done</p>
               <p className={`text-4xl font-extrabold mt-1 ${completed.length > 0 ? "text-emerald-600" : "text-slate-300"}`}>{completed.length}</p>
             </div>
           </div>
 
           {/* Active tasks */}
-          <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6">
+          <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
             <div className="flex items-center justify-between mb-5">
               <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                 {isOverdueDay ? "Overdue" : "Tasks"}
@@ -176,16 +176,16 @@ export default function DayPage() {
                 {active.map((task, i) => (
                   <div
                     key={task.id}
-                    className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all duration-200 animate-fade-in-up ${
+                    className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.99] animate-fade-in-up ${
                       isOverdueDay
                         ? "bg-red-50/80 hover:bg-red-100/70 hover:shadow-md hover:shadow-red-100/50"
                         : "bg-white/70 border border-white hover:bg-white hover:shadow-md hover:shadow-indigo-100/50"
                     }`}
-                    style={{ animationDelay: `${i * 50}ms` }}
+                    style={{ animationDelay: `${300 + i * 60}ms` }}
                   >
                     <input
                       type="checkbox"
-                      onChange={() => dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } })}
+                      onChange={(e) => { e.target.classList.add('animate-check-bounce'); dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } }); }}
                       className="h-3.5 w-3.5 rounded border-slate-300 accent-indigo-600 shrink-0 cursor-pointer"
                     />
                     <div className={`w-1 h-8 rounded-full shrink-0 ${priorityColors[task.priority]}`} />
@@ -231,7 +231,7 @@ export default function DayPage() {
                     <input
                       type="checkbox"
                       checked
-                      onChange={() => dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } })}
+                      onChange={(e) => { e.target.classList.add('animate-check-bounce'); dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } }); }}
                       className="h-3.5 w-3.5 rounded border-slate-300 accent-indigo-600 shrink-0 cursor-pointer"
                     />
                     <Link href={`/tasks/${task.id}/edit`} className="text-sm text-slate-400 line-through truncate hover:underline">{task.title}</Link>

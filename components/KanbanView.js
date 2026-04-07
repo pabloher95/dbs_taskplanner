@@ -85,10 +85,10 @@ export default function KanbanView() {
                 return (
                   <div
                     key={task.id}
-                    className={`bg-white/70 backdrop-blur-sm rounded-2xl p-3.5 border transition-all duration-200 hover:shadow-lg hover:shadow-indigo-100/50 hover:bg-white animate-fade-in-up ${
+                    className={`bg-white/70 backdrop-blur-sm rounded-2xl p-3.5 border transition-all duration-200 hover:shadow-lg hover:shadow-indigo-100/50 hover:bg-white hover:scale-[1.03] active:scale-[0.98] animate-pop-in ${
                       isOverdue ? "border-red-200/60" : "border-white"
                     }`}
-                    style={{ animationDelay: `${i * 60}ms` }}
+                    style={{ animationDelay: `${i * 80}ms` }}
                   >
                     <div className="flex items-start gap-2">
                       <input

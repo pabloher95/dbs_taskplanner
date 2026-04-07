@@ -166,7 +166,7 @@ export default function NewTaskPage() {
         <div className="flex gap-3 mt-6">
           <button
             type="submit"
-            className="flex-1 py-3.5 rounded-2xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 shadow-lg shadow-indigo-200/50 transition-all duration-200"
+            className="flex-1 py-3.5 rounded-2xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-300/50 active:scale-[0.98] shadow-lg shadow-indigo-200/50 transition-all duration-200"
           >
             Add Task
           </button>
