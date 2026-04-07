@@ -71,13 +71,13 @@ export default function WeekPage() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setWeekStart(subWeeks(weekStart, 1))}
-            className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 text-slate-400 hover:text-slate-700 hover:border-slate-300 transition-colors"
+            className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/80 backdrop-blur-md border border-white/80 text-slate-400 hover:text-slate-700 hover:border-slate-300 transition-colors"
           >
             &larr;
           </button>
           <button
             onClick={() => setWeekStart(addWeeks(weekStart, 1))}
-            className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 text-slate-400 hover:text-slate-700 hover:border-slate-300 transition-colors"
+            className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/80 backdrop-blur-md border border-white/80 text-slate-400 hover:text-slate-700 hover:border-slate-300 transition-colors"
           >
             &rarr;
           </button>
@@ -125,11 +125,11 @@ export default function WeekPage() {
           <p className="text-[10px] uppercase tracking-widest text-indigo-300">Total</p>
           <p className="text-3xl font-bold text-white mt-1">{weekTasks.length}</p>
         </div>
-        <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-4 hover-lift hover:shadow-lg hover:shadow-indigo-100/40 animate-pop-in" style={{ animationDelay: "80ms" }}>
+        <div className="bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl p-4 hover-lift hover:shadow-lg hover:shadow-indigo-100/40 animate-pop-in" style={{ animationDelay: "80ms" }}>
           <p className="text-[10px] uppercase tracking-widest text-slate-400">Active</p>
           <p className="text-3xl font-bold text-slate-800 mt-1">{weekActive}</p>
         </div>
-        <div className={`rounded-3xl p-4 hover-lift animate-pop-in ${weekCompleted > 0 ? "bg-emerald-50/80 border border-emerald-200/40 hover:shadow-lg hover:shadow-emerald-100/40" : "bg-white/60 backdrop-blur-sm border border-white/80 hover:shadow-lg hover:shadow-indigo-100/40"}`} style={{ animationDelay: "160ms" }}>
+        <div className={`rounded-3xl p-4 hover-lift animate-pop-in ${weekCompleted > 0 ? "bg-emerald-50/80 border border-emerald-200/40 hover:shadow-lg hover:shadow-emerald-100/40" : "bg-white/80 backdrop-blur-md border border-white/80 hover:shadow-lg hover:shadow-indigo-100/40"}`} style={{ animationDelay: "160ms" }}>
           <p className={`text-[10px] uppercase tracking-widest ${weekCompleted > 0 ? "text-emerald-400" : "text-slate-400"}`}>Done</p>
           <p className={`text-3xl font-bold mt-1 ${weekCompleted > 0 ? "text-emerald-600" : "text-slate-300"}`}>{weekCompleted}</p>
         </div>
@@ -148,7 +148,7 @@ export default function WeekPage() {
               className={`rounded-3xl p-3 min-h-[200px] hover-lift animate-pop-in ${
                 isTodayDate
                   ? "bg-gradient-to-br from-indigo-600 to-indigo-700 shadow-lg shadow-indigo-200/50 hover:shadow-xl hover:shadow-indigo-300/50"
-                  : "bg-white/40 backdrop-blur-sm border border-white/60 hover:shadow-lg hover:shadow-indigo-100/40"
+                  : "bg-white/60 backdrop-blur-md border border-white/60 hover:shadow-lg hover:shadow-indigo-100/40"
               }`}
               style={{ animationDelay: `${dayIndex * 60}ms` }}
             >
@@ -181,7 +181,7 @@ export default function WeekPage() {
                         isTodayDate
                           ? "bg-indigo-500/30"
                           : task.completed
-                          ? "bg-white/60"
+                          ? "bg-white/80"
                           : "bg-white"
                       }`}
                     >

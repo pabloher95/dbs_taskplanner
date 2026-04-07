@@ -56,7 +56,7 @@ export default function NewTaskPage() {
       </h1>
 
       <form onSubmit={handleSubmit} noValidate>
-        <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl divide-y divide-slate-100/60">
+        <div className="bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl divide-y divide-slate-100/60">
           {/* Title */}
           <div className="p-6">
             <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
@@ -172,7 +172,7 @@ export default function NewTaskPage() {
           </button>
           <Link
             href="/"
-            className="px-6 py-3.5 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 text-sm font-medium text-slate-500 hover:bg-white hover:text-slate-700 transition-all duration-200 text-center"
+            className="px-6 py-3.5 rounded-2xl bg-white/80 backdrop-blur-md border border-white/80 text-sm font-medium text-slate-500 hover:bg-white hover:text-slate-700 transition-all duration-200 text-center"
           >
             Cancel
           </Link>

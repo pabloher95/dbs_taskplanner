@@ -73,13 +73,13 @@ export default function DayPage() {
         <div className="flex items-center gap-2">
           <Link
             href={`/day/${prevDate}`}
-            className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 text-slate-400 hover:text-indigo-600 hover:border-indigo-200 transition-all duration-200"
+            className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/80 backdrop-blur-md border border-white/80 text-slate-400 hover:text-indigo-600 hover:border-indigo-200 transition-all duration-200"
           >
             &larr;
           </Link>
           <Link
             href={`/day/${nextDate}`}
-            className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 text-slate-400 hover:text-indigo-600 hover:border-indigo-200 transition-all duration-200"
+            className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/80 backdrop-blur-md border border-white/80 text-slate-400 hover:text-indigo-600 hover:border-indigo-200 transition-all duration-200"
           >
             &rarr;
           </Link>
@@ -102,7 +102,7 @@ export default function DayPage() {
           {!isToday(selectedDate) && (
             <Link
               href={`/day/${format(today, "yyyy-MM-dd")}`}
-              className="text-xs font-medium px-3 py-2 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-all duration-200"
+              className="text-xs font-medium px-3 py-2 rounded-xl bg-white/80 backdrop-blur-md border border-white/80 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-all duration-200"
             >
               Today
             </Link>
@@ -113,7 +113,7 @@ export default function DayPage() {
             onChange={(e) => {
               if (e.target.value) window.location.href = `/day/${e.target.value}`;
             }}
-            className="text-xs border border-white/80 rounded-xl px-3 py-2 text-slate-500 bg-white/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-indigo-200"
+            className="text-xs border border-white/80 rounded-xl px-3 py-2 text-slate-500 bg-white/80 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-indigo-200"
           />
         </div>
       </div>
@@ -126,18 +126,18 @@ export default function DayPage() {
               <p className="text-[10px] uppercase tracking-widest text-indigo-300">Tasks</p>
               <p className="text-4xl font-extrabold text-white mt-1">{dayTasks.length}</p>
             </div>
-            <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-5 hover-lift hover:shadow-lg hover:shadow-indigo-100/40 animate-pop-in" style={{ animationDelay: "80ms" }}>
+            <div className="bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl p-5 hover-lift hover:shadow-lg hover:shadow-indigo-100/40 animate-pop-in" style={{ animationDelay: "80ms" }}>
               <p className="text-[10px] uppercase tracking-widest text-slate-400">Active</p>
               <p className="text-4xl font-extrabold text-slate-800 mt-1">{active.length}</p>
             </div>
-            <div className={`rounded-3xl p-5 hover-lift animate-pop-in ${completed.length > 0 ? "bg-emerald-50/80 border border-emerald-200/40 hover:shadow-lg hover:shadow-emerald-100/40" : "bg-white/60 backdrop-blur-sm border border-white/80 hover:shadow-lg hover:shadow-indigo-100/40"}`} style={{ animationDelay: "160ms" }}>
+            <div className={`rounded-3xl p-5 hover-lift animate-pop-in ${completed.length > 0 ? "bg-emerald-50/80 border border-emerald-200/40 hover:shadow-lg hover:shadow-emerald-100/40" : "bg-white/80 backdrop-blur-md border border-white/80 hover:shadow-lg hover:shadow-indigo-100/40"}`} style={{ animationDelay: "160ms" }}>
               <p className={`text-[10px] uppercase tracking-widest ${completed.length > 0 ? "text-emerald-400" : "text-slate-400"}`}>Done</p>
               <p className={`text-4xl font-extrabold mt-1 ${completed.length > 0 ? "text-emerald-600" : "text-slate-300"}`}>{completed.length}</p>
             </div>
           </div>
 
           {/* Active tasks */}
-          <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
+          <div className="bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl p-6 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
             <div className="flex items-center justify-between mb-5">
               <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                 {isOverdueDay ? "Overdue" : "Tasks"}
@@ -179,7 +179,7 @@ export default function DayPage() {
                     className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.99] animate-fade-in-up ${
                       isOverdueDay
                         ? "bg-red-50/80 hover:bg-red-100/70 hover:shadow-md hover:shadow-red-100/50"
-                        : "bg-white/70 border border-white hover:bg-white hover:shadow-md hover:shadow-indigo-100/50"
+                        : "bg-white/85 border border-white hover:bg-white hover:shadow-md hover:shadow-indigo-100/50"
                     }`}
                     style={{ animationDelay: `${300 + i * 60}ms` }}
                   >
@@ -218,7 +218,7 @@ export default function DayPage() {
 
           {/* Completed tasks */}
           {completed.length > 0 && (
-            <div className="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6">
+            <div className="bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl p-6">
               <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">
                 Completed
               </p>

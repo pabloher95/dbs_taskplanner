@@ -57,7 +57,7 @@ export default function BentoView() {
         )}
       </div>
 
-      <div className={`col-span-1 rounded-3xl p-6 flex flex-col justify-between hover-lift animate-pop-in ${overdue.length > 0 ? "bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-200/50 hover:shadow-xl hover:shadow-red-300/50" : "bg-white/60 backdrop-blur-sm border border-white/80 hover:shadow-lg hover:shadow-indigo-100/40"}`} style={{ animationDelay: "80ms" }}>
+      <div className={`col-span-1 rounded-3xl p-6 flex flex-col justify-between hover-lift animate-pop-in ${overdue.length > 0 ? "bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-200/50 hover:shadow-xl hover:shadow-red-300/50" : "bg-white/80 backdrop-blur-md border border-white/80 hover:shadow-lg hover:shadow-indigo-100/40"}`} style={{ animationDelay: "80ms" }}>
         <p className={`text-[10px] uppercase tracking-widest ${overdue.length > 0 ? "text-red-200" : "text-slate-400"}`}>
           Overdue
         </p>
@@ -66,12 +66,12 @@ export default function BentoView() {
         </p>
       </div>
 
-      <div className="col-span-1 bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6 flex flex-col justify-between hover-lift hover:shadow-lg hover:shadow-indigo-100/40 animate-pop-in" style={{ animationDelay: "160ms" }}>
+      <div className="col-span-1 bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl p-6 flex flex-col justify-between hover-lift hover:shadow-lg hover:shadow-indigo-100/40 animate-pop-in" style={{ animationDelay: "160ms" }}>
         <p className="text-[10px] uppercase tracking-widest text-slate-400">Active</p>
         <p className="text-5xl font-extrabold text-slate-800 mt-2">{totalActive}</p>
       </div>
 
-      <div className="col-span-1 bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6 flex flex-col animate-slide-in-left" style={{ gridRow: "1 / -1", animationDelay: "200ms" }}>
+      <div className="col-span-1 bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl p-6 flex flex-col animate-slide-in-left" style={{ gridRow: "1 / -1", animationDelay: "200ms" }}>
         <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-4 font-medium">Navigate</p>
         <div className="flex flex-col flex-1 justify-between gap-2">
           {[
@@ -93,13 +93,13 @@ export default function BentoView() {
       </div>
 
       {overdue.length > 0 && (
-        <div className="col-span-3 bg-red-50/80 backdrop-blur-sm border border-red-200/40 rounded-3xl p-6">
+        <div className="col-span-3 bg-red-50/80 backdrop-blur-md border border-red-200/40 rounded-3xl p-6">
           <p className="text-[10px] font-bold uppercase tracking-widest text-red-400 mb-3">
             Overdue tasks
           </p>
           <div className="grid grid-cols-3 gap-2">
             {overdue.slice(0, 6).map((task) => (
-              <div key={task.id} className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/70">
+              <div key={task.id} className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/85">
                 <input
                   type="checkbox"
                   onChange={() => dispatch({ type: "TOGGLE_TASK", payload: { id: task.id } })}
@@ -115,7 +115,7 @@ export default function BentoView() {
         </div>
       )}
 
-      <div className={`${overdue.length > 0 ? "col-span-4" : "col-span-3"} bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6 animate-fade-in-up`} style={{ animationDelay: "250ms" }}>
+      <div className={`${overdue.length > 0 ? "col-span-4" : "col-span-3"} bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl p-6 animate-fade-in-up`} style={{ animationDelay: "250ms" }}>
         <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-5">
           Upcoming
         </p>
@@ -128,7 +128,7 @@ export default function BentoView() {
             {upcoming.map((task, i) => (
               <div
                 key={task.id}
-                className="flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-white/70 border border-white hover:bg-white hover:shadow-md hover:shadow-indigo-100/50 hover:scale-[1.02] active:scale-[0.99] transition-all duration-200 animate-fade-in-up"
+                className="flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-white/85 border border-white hover:bg-white hover:shadow-md hover:shadow-indigo-100/50 hover:scale-[1.02] active:scale-[0.99] transition-all duration-200 animate-fade-in-up"
                 style={{ animationDelay: `${350 + i * 70}ms` }}
               >
                 <input
@@ -165,7 +165,7 @@ export default function BentoView() {
         )}
       </div>
       {completed.length > 0 && (
-        <div className="col-span-4 bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6">
+        <div className="col-span-4 bg-white/80 backdrop-blur-md border border-white/80 rounded-3xl p-6">
           <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">
             Completed
           </p>

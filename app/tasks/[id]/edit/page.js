@@ -88,7 +88,7 @@ export default function EditTaskPage() {
       </h1>
 
       <form onSubmit={handleSubmit}>
-        <div className="bg-white/70 backdrop-blur-sm shadow-sm rounded-3xl divide-y divide-slate-100/60">
+        <div className="bg-white/85 backdrop-blur-md shadow-sm rounded-3xl divide-y divide-slate-100/60">
           <div className="p-5">
             <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
               Title
@@ -199,7 +199,7 @@ export default function EditTaskPage() {
           </button>
           <Link
             href="/"
-            className="px-6 py-3 rounded-3xl bg-white/60 backdrop-blur-sm border border-white/80 text-sm font-medium text-slate-500 hover:bg-slate-50/80 transition-colors text-center"
+            className="px-6 py-3 rounded-3xl bg-white/80 backdrop-blur-md border border-white/80 text-sm font-medium text-slate-500 hover:bg-slate-50/80 transition-colors text-center"
           >
             Cancel
           </Link>

@@ -63,7 +63,7 @@ export default function KanbanView() {
       </div>
     <div className="grid grid-cols-4 gap-4 items-start">
       {columns.map((col) => (
-        <div key={col.label} className="bg-white/40 backdrop-blur-sm border border-white/60 rounded-3xl p-3">
+        <div key={col.label} className="bg-white/60 backdrop-blur-md border border-white/60 rounded-3xl p-3">
           <div className="flex items-center justify-between px-2 mb-3">
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500 capitalize">
               {col.label}
@@ -85,7 +85,7 @@ export default function KanbanView() {
                 return (
                   <div
                     key={task.id}
-                    className={`bg-white/70 backdrop-blur-sm rounded-2xl p-3.5 border transition-all duration-200 hover:shadow-lg hover:shadow-indigo-100/50 hover:bg-white hover:scale-[1.03] active:scale-[0.98] animate-pop-in ${
+                    className={`bg-white/85 backdrop-blur-md rounded-2xl p-3.5 border transition-all duration-200 hover:shadow-lg hover:shadow-indigo-100/50 hover:bg-white hover:scale-[1.03] active:scale-[0.98] animate-pop-in ${
                       isOverdue ? "border-red-200/60" : "border-white"
                     }`}
                     style={{ animationDelay: `${i * 80}ms` }}
